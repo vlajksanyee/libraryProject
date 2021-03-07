@@ -13,5 +13,3 @@ E:\GitHub\Repos\libraryProject\library\library\obj\Debug\library.csproj.Generate
 E:\GitHub\Repos\libraryProject\library\library\obj\Debug\library.csproj.CoreCompileInputs.cache
 E:\GitHub\Repos\libraryProject\library\library\obj\Debug\library.exe
 E:\GitHub\Repos\libraryProject\library\library\obj\Debug\library.pdb
-E:\GitHub\Repos\libraryProject\library\library\obj\Debug\AddBookWindow.g.cs
-E:\GitHub\Repos\libraryProject\library\library\obj\Debug\AddBookWindow.baml
