@@ -123,28 +123,23 @@ namespace library
 
 		private void RemoveBT_Click(object sender, RoutedEventArgs e)
 		{
-			var grid = dataGrid;
 			var myGrid = dataGrid;
-			if (grid.SelectedIndex >= 0)
+			if (myGrid.SelectedIndex >= 0)
 			{
-				for (int i = 0; i <= grid.SelectedItems.Count; i++)
-				{
-					myGrid.Items.Remove(grid.SelectedItems[i]);
-				}
-
-				//foreach (var item in dataList)
-				//{
-				//	int saveID = item.bookID;
-				//	string saveAuthor = item.author;
-				//	string saveTitle = item.bookTitle;
-				//	string saveYear = item.yearOfPublishing;
-				//	string savePublisher = item.publisher;
-				//	bool saveRental = item.rentalAvailability;
-				//	sw.WriteLine("{0};{1};{2};{3};{4};{5}", saveID, saveAuthor, saveTitle, saveYear, savePublisher, saveRental);
-				//}
-				//LoadBooksData("konyvek.txt");
+				dataGrid.Items.RemoveAt(myGrid.SelectedIndex);
+				myGrid.Items.Refresh();
 			}
-			grid = myGrid;
+
+			//var grid = dataGrid;
+			//var myGrid = dataGrid;
+			//if (grid.SelectedIndex >= 0)
+			//{
+			//	for (int i = 0; i <= grid.SelectedItems.Count; i++)
+			//	{
+			//		myGrid.Items.Remove(grid.SelectedItems[i]);
+			//	}
+			//}
+			//grid = myGrid;
 		}
 
 		private void SearchTB_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
@@ -169,16 +164,12 @@ namespace library
 
 		private void RemoveMemberBT_Click(object sender, RoutedEventArgs e)
 		{
-			var grid = membersDataGrid;
 			var myGrid = membersDataGrid;
-			if (grid.SelectedIndex >= 0)
+			if (myGrid.SelectedIndex >= 0)
 			{
-				for (int i = 0; i <= grid.SelectedItems.Count; i++)
-				{
-					myGrid.Items.Remove(grid.SelectedItems[i]);
-				}
+				membersDataGrid.Items.RemoveAt(myGrid.SelectedIndex);
+				myGrid.Items.Refresh();
 			}
-			grid = myGrid;
 		}
 	}
 }
