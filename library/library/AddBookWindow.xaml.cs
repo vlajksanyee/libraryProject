@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,20 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace library
 {
 	/// <summary>
-	/// Interaction logic for MainWindow.xaml
+	/// Interaction logic for AddBookWindow.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class AddBookWindow : Window
 	{
-		public MainWindow()
+		public AddBookWindow()
 		{
 			InitializeComponent();
-			LoadData("konyvek.txt");
 		}
 
 		public class Library
@@ -46,25 +43,11 @@ namespace library
 				publisher = part[4];
 				rentalAvailability = bool.Parse(part[5]);
 			}
-		}
 
-		List<Library> dataList = new List<Library>();
-
-		public void LoadData(string fileName)
-		{
-			int i = 0;
-			foreach (var item in File.ReadAllLines(fileName))
+			private void AbwAddBT_Click(object sender, RoutedEventArgs e)
 			{
-				dataList.Add(new Library(item));
-				dataGrid.Items.Add(dataList[i]);
-				i++;
+				bookID = 
 			}
-		}
-
-		private void AddBookBT_Click(object sender, RoutedEventArgs e)
-		{
-			AddBookWindow abw = new AddBookWindow();
-			abw.Show();
 		}
 	}
 }

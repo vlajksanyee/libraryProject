@@ -1,0 +1,17 @@
+E:\GitHub\Repos\libraryProject\library\library\bin\Debug\library.exe.config
+E:\GitHub\Repos\libraryProject\library\library\bin\Debug\library.exe
+E:\GitHub\Repos\libraryProject\library\library\bin\Debug\library.pdb
+E:\GitHub\Repos\libraryProject\library\library\obj\Debug\library.csprojAssemblyReference.cache
+E:\GitHub\Repos\libraryProject\library\library\obj\Debug\MainWindow.g.cs
+E:\GitHub\Repos\libraryProject\library\library\obj\Debug\App.g.cs
+E:\GitHub\Repos\libraryProject\library\library\obj\Debug\library_MarkupCompile.cache
+E:\GitHub\Repos\libraryProject\library\library\obj\Debug\library_MarkupCompile.lref
+E:\GitHub\Repos\libraryProject\library\library\obj\Debug\MainWindow.baml
+E:\GitHub\Repos\libraryProject\library\library\obj\Debug\library.g.resources
+E:\GitHub\Repos\libraryProject\library\library\obj\Debug\library.Properties.Resources.resources
+E:\GitHub\Repos\libraryProject\library\library\obj\Debug\library.csproj.GenerateResource.cache
+E:\GitHub\Repos\libraryProject\library\library\obj\Debug\library.csproj.CoreCompileInputs.cache
+E:\GitHub\Repos\libraryProject\library\library\obj\Debug\library.exe
+E:\GitHub\Repos\libraryProject\library\library\obj\Debug\library.pdb
+E:\GitHub\Repos\libraryProject\library\library\obj\Debug\AddBookWindow.g.cs
+E:\GitHub\Repos\libraryProject\library\library\obj\Debug\AddBookWindow.baml
