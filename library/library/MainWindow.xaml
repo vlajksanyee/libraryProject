@@ -50,15 +50,19 @@
 					<TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="40" Margin="787,30,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Width="112" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
 					<TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="40" Margin="787,75,0,0" TextWrapping="Wrap" Text="Date Of Birth:" VerticalAlignment="Top" Width="112" VerticalContentAlignment="Center" FontSize="17" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
 					<TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="40" Margin="787,120,0,0" TextWrapping="Wrap" Text="Location:" VerticalAlignment="Top" Width="112" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
-					<TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="40" Margin="787,165,0,0" TextWrapping="Wrap" Text="Post Code:" VerticalAlignment="Top" Width="112" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
+					<TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="40" Margin="787,210,0,0" TextWrapping="Wrap" Text="Post Code:" VerticalAlignment="Top" Width="112" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
+					<TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="40" Margin="787,165,0,0" TextWrapping="Wrap" Text="Address:" VerticalAlignment="Top" Width="112" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
 					<TextBox x:Name="amName" HorizontalAlignment="Left" Height="40" Margin="899,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
 					<TextBox x:Name="amDOB" HorizontalAlignment="Left" Height="40" Margin="899,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
 					<TextBox x:Name="amLoc" HorizontalAlignment="Left" Height="40" Margin="899,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
-					<TextBox x:Name="amPC" HorizontalAlignment="Left" Height="40" Margin="899,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
-					<Button x:Name="addMemberBT" Content="Add Member" HorizontalAlignment="Left" Margin="787,210,0,0" VerticalAlignment="Top" Width="346" Height="40" FontSize="20" BorderBrush="Black" Background="#FF555555" Foreground="White" Click="AddMemberBT_Click"/>
-					<Button x:Name="removeMemberBT" Content="Remove Selected Member" HorizontalAlignment="Left" Margin="787,255,0,0" VerticalAlignment="Top" Width="346" Height="40" FontSize="20" BorderBrush="Black" Background="#FF555555" Foreground="White" Click="RemoveMemberBT_Click"/>
+					<TextBox x:Name="amAddress" HorizontalAlignment="Left" Height="40" Margin="899,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
+					<TextBox x:Name="amPC" HorizontalAlignment="Left" Height="40" Margin="899,210,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
+					<Button x:Name="addMemberBT" Content="Add Member" HorizontalAlignment="Left" Margin="787,256,0,0" VerticalAlignment="Top" Width="346" Height="40" FontSize="20" BorderBrush="Black" Background="#FF555555" Foreground="White" Click="AddMemberBT_Click"/>
+					<Button x:Name="removeMemberBT" Content="Remove Selected Member" HorizontalAlignment="Left" Margin="787,301,0,0" VerticalAlignment="Top" Width="346" Height="40" FontSize="20" BorderBrush="Black" Background="#FF555555" Foreground="White" Click="RemoveMemberBT_Click"/>
 					
 					
+
+
 				</Grid>
 			</TabItem>
 		</TabControl>

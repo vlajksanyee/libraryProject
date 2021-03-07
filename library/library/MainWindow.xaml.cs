@@ -68,6 +68,7 @@ namespace library
 			public string memberDOB { get; set; }
 			public string memberPC { get; set; }
 			public string memberLoc { get; set; }
+			public string memberAddr { get; set; }
 			public Members(string row)
 			{
 				string[] part = row.Split(';');
@@ -75,7 +76,8 @@ namespace library
 				memberName = part[1];
 				memberDOB = part[2];
 				memberPC = part[3];
-				memberLoc = part[4] + " " + part[5];
+				memberLoc = part[4];
+				memberAddr = part[5];
 			}
 		}
 
@@ -86,6 +88,7 @@ namespace library
 			public string memberDOB { get; set; }
 			public string memberPC { get; set; }
 			public string memberLoc { get; set; }
+			public string memberAddr { get; set; }
 		}
 
 		//public static List<Members> membersDataList = new List<Members>();
@@ -157,8 +160,9 @@ namespace library
 			addMember.memberDOB = amDOB.Text;
 			addMember.memberPC = amPC.Text;
 			addMember.memberLoc = amLoc.Text;
+			addMember.memberAddr = amAddress.Text;
 			StreamWriter sw = new StreamWriter("tagok.txt", true);
-			sw.WriteLine("{0};{1};{2};{3};{4}", addMember.memberID, addMember.memberName, addMember.memberDOB, addMember.memberPC, addMember.memberLoc);
+			sw.WriteLine("{0};{1};{2};{3};{4};{5}", addMember.memberID, addMember.memberName, addMember.memberDOB, addMember.memberPC, addMember.memberLoc, addMember.memberAddr);
 			sw.Close();
 			LoadMembersData("tagok.txt");
 		}
