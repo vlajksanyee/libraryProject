@@ -63,8 +63,12 @@ namespace library
 
 		private void AddBookBT_Click(object sender, RoutedEventArgs e)
 		{
-			AddBookWindow abw = new AddBookWindow();
-			abw.Show();
+			abAuthor.Visibility = Visibility.Visible;
+			abTitle.Visibility = Visibility.Visible;
+			abYear.Visibility = Visibility.Visible;
+			abPublisher.Visibility = Visibility.Visible;
+			abRental.Visibility = Visibility.Visible;
+			abAddBT.Visibility = Visibility.Visible;
 		}
 	}
 }

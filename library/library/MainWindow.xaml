@@ -18,5 +18,11 @@
 			</DataGrid.Columns>
 		</DataGrid>
 		<Button x:Name="addBookBT" Content="Add Book" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="34" Click="AddBookBT_Click"/>
+		<TextBox x:Name="abAuthor" HorizontalAlignment="Left" Height="40" Margin="10,9,0,0" TextWrapping="Wrap" Text="(Author)" VerticalAlignment="Top" Width="272" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949" Visibility="Hidden"/>
+		<TextBox x:Name="abTitle" HorizontalAlignment="Left" Height="40" Margin="10,54,0,0" TextWrapping="Wrap" Text="(Title)" VerticalAlignment="Top" Width="272" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949" Visibility="Hidden"/>
+		<TextBox x:Name="abYear" HorizontalAlignment="Left" Height="40" Margin="10,99,0,0" TextWrapping="Wrap" Text="(Year Of Publishing)" VerticalAlignment="Top" Width="272" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949" Visibility="Hidden"/>
+		<TextBox x:Name="abPublisher" HorizontalAlignment="Left" Height="40" Margin="10,144,0,0" TextWrapping="Wrap" Text="(Publisher)" VerticalAlignment="Top" Width="272" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949" Visibility="Hidden"/>
+		<TextBox x:Name="abRental" HorizontalAlignment="Left" Height="40" Margin="10,189,0,0" TextWrapping="Wrap" Text="(Rental Availability)" VerticalAlignment="Top" Width="272" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949" Visibility="Hidden"/>
+		<Button x:Name="abAddBT" Content="Add Book" HorizontalAlignment="Left" Margin="10,234,0,0" VerticalAlignment="Top" Width="272" Height="40" FontSize="20" BorderBrush="Black" Background="#FF555555" Click="AbwAddBT_Click" Foreground="White" Visibility="Hidden"/>
 	</Grid>
 </Window>
