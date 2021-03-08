@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows;
 
 namespace library
@@ -48,7 +49,7 @@ namespace library
 			public bool rentalAvailability { get; set; }
 		}
 
-		//public static List<Library> dataList = new List<Library>();
+		//public List<Library> dataList = new List<Library>();
 
 		public void LoadBooksData(string fileName)
 		{
@@ -169,22 +170,6 @@ namespace library
 				dataGrid.Items.RemoveAt(myGrid.SelectedIndex);
 				myGrid.Items.Refresh();
 			}
-
-			//var grid = dataGrid;
-			//var myGrid = dataGrid;
-			//if (grid.SelectedIndex >= 0)
-			//{
-			//	for (int i = 0; i <= grid.SelectedItems.Count; i++)
-			//	{
-			//		myGrid.Items.Remove(grid.SelectedItems[i]);
-			//	}
-			//}
-			//grid = myGrid;
-		}
-
-		private void SearchTB_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-		{
-
 		}
 
 		private void AddMemberBT_Click(object sender, RoutedEventArgs e)
@@ -215,22 +200,6 @@ namespace library
 		bool addRentalEnabled;
 		private void AddRentalBT_Click(object sender, RoutedEventArgs e)
 		{
-			//addRentalEnabled = 0;
-			//foreach (var item in rMemberIDTB.Text)
-			//{
-			//	if (!Char.IsLetter(rMemberIDTB.Text[item]) || rMemberIDTB.Text[item] != ' ' || rMemberIDTB.Text == "")
-			//		addRentalEnabled++;
-			//}
-			//foreach (var item in rBookIDTB.Text)
-			//{
-			//	if (!Char.IsLetter(rBookIDTB.Text[item]) || rBookIDTB.Text[item] != ' ' || rBookIDTB.Text == "")
-			//		addRentalEnabled++;
-			//}
-
-			//if (addRentalEnabled > 0)
-			//{
-			//	MessageBox.Show("Nem megfelelő bevitt adat!");
-			//}
 			addRentalEnabled = true;
 			Rental2 addRental = new Rental2();
 			try
@@ -266,6 +235,21 @@ namespace library
 				rentalsDataGrid.Items.RemoveAt(myGrid.SelectedIndex);
 				myGrid.Items.Refresh();
 			}
+		}
+
+		private void SearchTB_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+		{
+
+		}
+
+		private void MSearchTB_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+		{
+
+		}
+
+		private void RSearchTB_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+		{
+
 		}
 	}
 }
