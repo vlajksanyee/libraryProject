@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 
@@ -14,6 +15,7 @@ namespace library
 			InitializeComponent();
 			LoadBooksData("konyvek.txt");
 			LoadMembersData("tagok.txt");
+			LoadRentalsData("kolcsonzesek.txt");
 		}
 
 		public class Library
@@ -106,6 +108,44 @@ namespace library
 			}
 		}
 
+		public class Rental
+		{
+			public int rID { get; set; }
+			public int rMemberID { get; set; }
+			public int rBookID { get; set; }
+			public string rStart { get; set; }
+			public string rEnd { get; set; }
+			public Rental(string row)
+			{
+				string[] part = row.Split(';');
+				rID = int.Parse(part[0]);
+				rMemberID = int.Parse(part[1]);
+				rBookID = int.Parse(part[2]);
+				rStart = part[3];
+				rEnd = part[4];
+			}
+		}
+
+		public class Rental2
+		{
+			public int rID { get; set; }
+			public int rMemberID { get; set; }
+			public int rBookID { get; set; }
+			public string rStart { get; set; }
+			public string rEnd { get; set; }
+		}
+
+		public void LoadRentalsData(string fileName)
+		{
+			rentalsDataGrid.Items.Clear();
+			int i = 0;
+			foreach (var item in File.ReadAllLines(fileName))
+			{
+				rentalsDataGrid.Items.Add(new Rental(item));
+				i++;
+			}
+		}
+
 		private void AbAddBT_Click(object sender, RoutedEventArgs e)
 		{
 			Library2 addBook = new Library2();
@@ -168,6 +208,62 @@ namespace library
 			if (myGrid.SelectedIndex >= 0)
 			{
 				membersDataGrid.Items.RemoveAt(myGrid.SelectedIndex);
+				myGrid.Items.Refresh();
+			}
+		}
+
+		bool addRentalEnabled;
+		private void AddRentalBT_Click(object sender, RoutedEventArgs e)
+		{
+			//addRentalEnabled = 0;
+			//foreach (var item in rMemberIDTB.Text)
+			//{
+			//	if (!Char.IsLetter(rMemberIDTB.Text[item]) || rMemberIDTB.Text[item] != ' ' || rMemberIDTB.Text == "")
+			//		addRentalEnabled++;
+			//}
+			//foreach (var item in rBookIDTB.Text)
+			//{
+			//	if (!Char.IsLetter(rBookIDTB.Text[item]) || rBookIDTB.Text[item] != ' ' || rBookIDTB.Text == "")
+			//		addRentalEnabled++;
+			//}
+
+			//if (addRentalEnabled > 0)
+			//{
+			//	MessageBox.Show("Nem megfelelő bevitt adat!");
+			//}
+			addRentalEnabled = true;
+			Rental2 addRental = new Rental2();
+			try
+			{
+				addRental.rID = rentalsDataGrid.Items.Count + 1;
+				addRental.rMemberID = int.Parse(rMemberIDTB.Text);
+				addRental.rBookID = int.Parse(rBookIDTB.Text);
+				addRental.rStart = rStartTB.Text;
+				addRental.rEnd = rEndTB.Text;
+			}
+			catch (FormatException)
+			{
+				MessageBox.Show("Nem megfelelő bevitt adat!");
+				addRentalEnabled = false;
+			}
+			finally
+			{
+				if (addRentalEnabled)
+				{
+					StreamWriter sw = new StreamWriter("kolcsonzesek.txt", true);
+					sw.WriteLine("{0};{1};{2};{3};{4}", addRental.rID, addRental.rMemberID, addRental.rBookID, addRental.rStart, addRental.rEnd);
+					sw.Close();
+					LoadRentalsData("kolcsonzesek.txt");
+				}
+			}
+		}
+
+		private void RemoveRentalBT_Click(object sender, RoutedEventArgs e)
+		{
+			var myGrid = rentalsDataGrid;
+			if (myGrid.SelectedIndex >= 0)
+			{
+				rentalsDataGrid.Items.RemoveAt(myGrid.SelectedIndex);
 				myGrid.Items.Refresh();
 			}
 		}

@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Title="Library Database" Height="451.253" Width="1159">
 	<Grid>
-
 		<TabControl HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="1151">
 			<TabItem Header="Books">
 				<Grid>
@@ -43,8 +42,9 @@
 							<DataGridTextColumn Header="Member ID" Binding="{Binding memberID}" Width="75" IsReadOnly="True"></DataGridTextColumn>
 							<DataGridTextColumn Header="Member Name" Binding="{Binding memberName}" Width="200" IsReadOnly="True"></DataGridTextColumn>
 							<DataGridTextColumn Header="Date Of Birth" Binding="{Binding memberDOB}" Width="100" IsReadOnly="True"></DataGridTextColumn>
-							<DataGridTextColumn Header="Post Code" Binding="{Binding memberDOB}" Width="100" IsReadOnly="True"></DataGridTextColumn>
+							<DataGridTextColumn Header="Post Code" Binding="{Binding memberPC}" Width="100" IsReadOnly="True"></DataGridTextColumn>
 							<DataGridTextColumn Header="Member Location" Binding="{Binding memberLoc}" Width="*" IsReadOnly="True"></DataGridTextColumn>
+							<DataGridTextColumn Header="Member Address" Binding="{Binding memberAddr}" Width="*" IsReadOnly="True"></DataGridTextColumn>
 						</DataGrid.Columns>
 					</DataGrid>
 					<TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="40" Margin="787,30,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Width="112" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
@@ -59,10 +59,29 @@
 					<TextBox x:Name="amPC" HorizontalAlignment="Left" Height="40" Margin="899,210,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
 					<Button x:Name="addMemberBT" Content="Add Member" HorizontalAlignment="Left" Margin="787,256,0,0" VerticalAlignment="Top" Width="346" Height="40" FontSize="20" BorderBrush="Black" Background="#FF555555" Foreground="White" Click="AddMemberBT_Click"/>
 					<Button x:Name="removeMemberBT" Content="Remove Selected Member" HorizontalAlignment="Left" Margin="787,301,0,0" VerticalAlignment="Top" Width="346" Height="40" FontSize="20" BorderBrush="Black" Background="#FF555555" Foreground="White" Click="RemoveMemberBT_Click"/>
-					
-					
-
-
+				</Grid>
+			</TabItem>
+			<TabItem Header="Rentals">
+				<Grid>
+					<DataGrid x:Name="rentalsDataGrid" HorizontalAlignment="Left" Height="295" Margin="10,29,0,0" VerticalAlignment="Top" Width="772" BorderBrush="Black" Background="{x:Null}" AutoGenerateColumns="False">
+						<DataGrid.Columns>
+							<DataGridTextColumn Header="Rental ID" Binding="{Binding rID}" Width="60" IsReadOnly="True"></DataGridTextColumn>
+							<DataGridTextColumn Header="Member ID" Binding="{Binding rMemberID}" Width="70" IsReadOnly="True"></DataGridTextColumn>
+							<DataGridTextColumn Header="Book ID" Binding="{Binding rBookID}" Width="55" IsReadOnly="True"></DataGridTextColumn>
+							<DataGridTextColumn Header="Start Of Rental" Binding="{Binding rStart}" Width="260" IsReadOnly="True"></DataGridTextColumn>
+							<DataGridTextColumn Header="End Of Rental" Binding="{Binding rEnd}" Width="*" IsReadOnly="True"></DataGridTextColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+					<TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="40" Margin="787,30,0,0" TextWrapping="Wrap" Text="Member ID:" VerticalAlignment="Top" Width="112" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
+					<TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="40" Margin="787,75,0,0" TextWrapping="Wrap" Text="Book ID:" VerticalAlignment="Top" Width="112" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
+					<TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="40" Margin="787,120,0,0" TextWrapping="Wrap" Text="Start Of Rental:" VerticalAlignment="Top" Width="112" VerticalContentAlignment="Center" FontSize="14" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
+					<TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="40" Margin="787,165,0,0" TextWrapping="Wrap" Text="End Of Rental:" VerticalAlignment="Top" Width="112" VerticalContentAlignment="Center" FontSize="16" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
+					<TextBox x:Name="rMemberIDTB" HorizontalAlignment="Left" Height="40" Margin="899,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
+					<TextBox x:Name="rBookIDTB" HorizontalAlignment="Left" Height="40" Margin="899,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
+					<TextBox x:Name="rStartTB" HorizontalAlignment="Left" Height="40" Margin="899,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
+					<TextBox x:Name="rEndTB" HorizontalAlignment="Left" Height="40" Margin="899,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234" VerticalContentAlignment="Center" FontSize="20" BorderBrush="Black" Background="#FFA8A8A8" Foreground="#FF494949"/>
+					<Button x:Name="addRentalBT" Content="Add Rental" HorizontalAlignment="Left" Margin="787,210,0,0" VerticalAlignment="Top" Width="346" Height="40" FontSize="20" BorderBrush="Black" Background="#FF555555" Foreground="White" Click="AddRentalBT_Click"/>
+					<Button x:Name="removeRentalBT" Content="Remove Selected Rental" HorizontalAlignment="Left" Margin="787,255,0,0" VerticalAlignment="Top" Width="346" Height="40" FontSize="20" BorderBrush="Black" Background="#FF555555" Foreground="White" Click="RemoveRentalBT_Click"/>
 				</Grid>
 			</TabItem>
 		</TabControl>
