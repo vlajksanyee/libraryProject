@@ -49,16 +49,16 @@ namespace library
 			public bool rentalAvailability { get; set; }
 		}
 
-		//public List<Library> dataList = new List<Library>();
+		public List<Library> dataList = new List<Library>();
 
 		public void LoadBooksData(string fileName)
 		{
-			//dataList.Clear();
+			dataList.Clear();
 			dataGrid.Items.Clear();
 			int i = 0;
 			foreach (var item in File.ReadAllLines(fileName))
 			{
-				//dataList.Add(new Library(item));
+				dataList.Add(new Library(item));
 				dataGrid.Items.Add(new Library(item));
 				i++;
 			}
@@ -94,16 +94,16 @@ namespace library
 			public string memberAddr { get; set; }
 		}
 
-		//public static List<Members> membersDataList = new List<Members>();
+		public List<Members> membersDataList = new List<Members>();
 
 		public void LoadMembersData(string fileName)
 		{
-			//membersDataList.Clear();
+			membersDataList.Clear();
 			membersDataGrid.Items.Clear();
 			int i = 0;
 			foreach (var item in File.ReadAllLines(fileName))
 			{
-				//membersDataList.Add(new Members(item));
+				membersDataList.Add(new Members(item));
 				membersDataGrid.Items.Add(new Members(item));
 				i++;
 			}
@@ -136,12 +136,16 @@ namespace library
 			public string rEnd { get; set; }
 		}
 
+		public List<Rental> rentalsDataList = new List<Rental>();
+
 		public void LoadRentalsData(string fileName)
 		{
+			rentalsDataList.Clear();
 			rentalsDataGrid.Items.Clear();
 			int i = 0;
 			foreach (var item in File.ReadAllLines(fileName))
 			{
+				rentalsDataList.Add(new Rental(item));
 				rentalsDataGrid.Items.Add(new Rental(item));
 				i++;
 			}
@@ -150,7 +154,7 @@ namespace library
 		private void AbAddBT_Click(object sender, RoutedEventArgs e)
 		{
 			Library2 addBook = new Library2();
-			addBook.bookID = dataGrid.Items.Count + 1;
+			addBook.bookID = dataList.IndexOf(dataList.Last()) + 2;
 			addBook.author = abAuthor.Text;
 			addBook.bookTitle = abTitle.Text;
 			addBook.yearOfPublishing = abYear.Text;
@@ -167,15 +171,32 @@ namespace library
 			var myGrid = dataGrid;
 			if (myGrid.SelectedIndex >= 0)
 			{
-				dataGrid.Items.RemoveAt(myGrid.SelectedIndex);
+				int a = myGrid.SelectedIndex;
+				dataGrid.Items.RemoveAt(a);
+				dataList.RemoveAt(a);
 				myGrid.Items.Refresh();
+
+				Library2 removeBook = new Library2();
+				StreamWriter sw = new StreamWriter("konyvek.txt");
+				for (int i = 0; i < dataList.Count; i++)
+				{
+					removeBook.bookID = dataList[i].bookID;
+					removeBook.author = dataList[i].author;
+					removeBook.bookTitle = dataList[i].bookTitle;
+					removeBook.yearOfPublishing = dataList[i].yearOfPublishing;
+					removeBook.publisher = dataList[i].publisher;
+					removeBook.rentalAvailability = dataList[i].rentalAvailability;
+					sw.WriteLine("{0};{1};{2};{3};{4};{5}", removeBook.bookID, removeBook.author, removeBook.bookTitle, removeBook.yearOfPublishing, removeBook.publisher, removeBook.rentalAvailability);
+				}
+				sw.Close();
+				LoadBooksData("konyvek.txt");
 			}
 		}
 
 		private void AddMemberBT_Click(object sender, RoutedEventArgs e)
 		{
 			Members2 addMember = new Members2();
-			addMember.memberID = membersDataGrid.Items.Count + 1;
+			addMember.memberID = membersDataList.IndexOf(membersDataList.Last()) + 2;
 			addMember.memberName = amName.Text;
 			addMember.memberDOB = amDOB.Text;
 			addMember.memberPC = amPC.Text;
@@ -192,8 +213,25 @@ namespace library
 			var myGrid = membersDataGrid;
 			if (myGrid.SelectedIndex >= 0)
 			{
-				membersDataGrid.Items.RemoveAt(myGrid.SelectedIndex);
+				int a = myGrid.SelectedIndex;
+				membersDataGrid.Items.RemoveAt(a);
+				membersDataList.RemoveAt(a);
 				myGrid.Items.Refresh();
+
+				Members2 removeMember = new Members2();
+				StreamWriter sw = new StreamWriter("tagok.txt");
+				for (int i = 0; i < membersDataList.Count; i++)
+				{
+					removeMember.memberID = membersDataList[i].memberID;
+					removeMember.memberName = membersDataList[i].memberName;
+					removeMember.memberDOB = membersDataList[i].memberDOB;
+					removeMember.memberPC = membersDataList[i].memberPC;
+					removeMember.memberLoc = membersDataList[i].memberLoc;
+					removeMember.memberAddr = membersDataList[i].memberAddr;
+					sw.WriteLine("{0};{1};{2};{3};{4};{5}", removeMember.memberID, removeMember.memberName, removeMember.memberDOB, removeMember.memberPC, removeMember.memberLoc, removeMember.memberAddr);
+				}
+				sw.Close();
+				LoadMembersData("tagok.txt");
 			}
 		}
 
@@ -204,7 +242,7 @@ namespace library
 			Rental2 addRental = new Rental2();
 			try
 			{
-				addRental.rID = rentalsDataGrid.Items.Count + 1;
+				addRental.rID = rentalsDataList.IndexOf(rentalsDataList.Last()) + 2;
 				addRental.rMemberID = int.Parse(rMemberIDTB.Text);
 				addRental.rBookID = int.Parse(rBookIDTB.Text);
 				addRental.rStart = rStartTB.Text;
@@ -232,8 +270,24 @@ namespace library
 			var myGrid = rentalsDataGrid;
 			if (myGrid.SelectedIndex >= 0)
 			{
-				rentalsDataGrid.Items.RemoveAt(myGrid.SelectedIndex);
+				int a = myGrid.SelectedIndex;
+				rentalsDataGrid.Items.RemoveAt(a);
+				rentalsDataList.RemoveAt(a);
 				myGrid.Items.Refresh();
+
+				Rental2 removeRental = new Rental2();
+				StreamWriter sw = new StreamWriter("kolcsonzesek.txt");
+				for (int i = 0; i < rentalsDataList.Count; i++)
+				{
+					removeRental.rID = rentalsDataList[i].rID;
+					removeRental.rMemberID = rentalsDataList[i].rMemberID;
+					removeRental.rBookID = rentalsDataList[i].rBookID;
+					removeRental.rStart = rentalsDataList[i].rStart;
+					removeRental.rEnd = rentalsDataList[i].rEnd;
+					sw.WriteLine("{0};{1};{2};{3};{4}", removeRental.rID, removeRental.rMemberID, removeRental.rBookID, removeRental.rStart, removeRental.rEnd);
+				}
+				sw.Close();
+				LoadRentalsData("kolcsonzesek.txt");
 			}
 		}
 
